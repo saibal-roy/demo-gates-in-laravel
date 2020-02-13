@@ -36,4 +36,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isUserAdmin()
+    {
+        if ($this->user_type === "A") {
+            return true;
+        }
+        return false;
+    }
+
+    public function isUserNormalUser()
+    {
+        if ($this->user_type === "U") {
+            return true;
+        }
+        return false;
+    }
 }
